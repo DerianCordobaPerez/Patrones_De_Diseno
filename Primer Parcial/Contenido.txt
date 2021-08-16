@@ -1,0 +1,31 @@
+Contenido: 
+	* Presentacion de las unidades y contenido
+	* Formas de evaluacion: 80 Acumulado / 20 Cierre de evaluacion
+	* Bibliografia
+	
+Unidad I:
+	* Introduccion a los patrones de diseño
+	* Descripcion de patrones
+	* Cualidades de los patrones
+	
+Unidad II:
+	* Patrones creaciones
+	* Builder
+	* Factory Method
+	* Prototype
+	* Singleton
+	* Adapter
+	
+Unidad III:
+	* Patrones estructurales
+	* Composite	* Proxy
+	* facade	* Comportamiento
+	* Decorator	* Chain of responsability
+	* Flywight	* Inteprete
+	* Iterator	* Mediator
+	
+Unidad IV:
+	* Patrones de comportamiento
+	* State
+	* Strategy
+	* MVC
