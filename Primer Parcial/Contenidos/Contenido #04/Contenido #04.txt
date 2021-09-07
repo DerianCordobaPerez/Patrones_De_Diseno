@@ -1,0 +1,11 @@
+Fecha: 06/09/2021
+Unidad II: Patrones de creacion.
+Contenido: Introducción a patrones de creacion.
+
+Actividad:
+  * Evaluacion de practicas y tareas.
+  * Presentacion de patrones de creacion.
+  * Tareas de patrones.
+  * Primera presentacion de aplicacion de cooperativa de ahorro y prestamo.
+
+

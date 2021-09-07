@@ -1,0 +1,3 @@
+Fecha: 30/08/2021
+Unidad I: Introduccion a los patrones.
+Contenido: Patrones fundamentales.
