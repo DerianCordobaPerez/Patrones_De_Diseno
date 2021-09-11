@@ -8,17 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * @property Integer|mixed RoleCode
- * @property string|mixed RoleName
+ * @property Integer|mixed role_code
+ * @property string|mixed role_name
  * @mixin Builder
  */
 class Role extends Model
 {
     use HasFactory;
 
-    public $primaryKey = 'RoleCode';
-    protected $guarded = ['RoleCode'];
-    protected $fillable = ['RoleName'];
+    /**
+     * @var string
+     */
+    public $primaryKey = 'role_code';
+
+    /**
+     * @var string[]
+     */
+    protected $guarded = ['role_code'];
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = ['role_name'];
 
     /**
      * Regresa la relacion de usuarios con roles
