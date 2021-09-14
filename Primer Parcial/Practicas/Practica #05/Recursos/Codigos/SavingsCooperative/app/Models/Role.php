@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property Integer|mixed role_code
@@ -39,6 +40,16 @@ class Role extends Model
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * Regresa la relacion de privilegios con roles
+     *
+     * @return BelongsToMany
+     */
+    public function privileges(): BelongsToMany
+    {
+        return $this->belongsToMany(Privileges::class);
     }
 
 }
