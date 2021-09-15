@@ -21,7 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->string('marital_status');
             $table->string('profession');
             $table->string('nationality');
-            $table->date('date_of_birth');
+            $table->dateTime('date_of_birth');
             $table->dateTime('date_of_admission');
             $table->dateTime('departure_date');
             $table->string('internal_mail');
