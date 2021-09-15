@@ -9,15 +9,6 @@ use Illuminate\View\View;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,17 +29,6 @@ class RoleController extends Controller
     public function store(Request $request): RedirectResponse
     {
         return redirect()->route('');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Role $role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
-    {
-        //
     }
 
     /**
