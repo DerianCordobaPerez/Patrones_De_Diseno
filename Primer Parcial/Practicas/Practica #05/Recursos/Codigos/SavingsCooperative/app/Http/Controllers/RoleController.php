@@ -28,7 +28,11 @@ class RoleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        return redirect()->route('');
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**

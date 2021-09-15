@@ -6,7 +6,6 @@ use App\Models\Employee;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use function PHPUnit\Framework\returnArgument;
 
 class EmployeeController extends Controller
 {

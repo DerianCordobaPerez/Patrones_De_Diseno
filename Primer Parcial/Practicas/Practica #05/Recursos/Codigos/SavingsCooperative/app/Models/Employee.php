@@ -54,4 +54,9 @@ class Employee extends Model
         'internal_mail',
         'personal_mail'
     ];
+
+    /**
+     * @var bool
+     */
+    public $incrementing = true;
 }

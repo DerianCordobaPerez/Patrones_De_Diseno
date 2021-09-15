@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::group([], function() {
 
-    Route::resource('employees', EmployeeController::class);
+    Route::resource('employees', EmployeeController::class)->except(['index']);
 
-    Route::resource('roles', RoleController::class);
+    Route::resource('roles', RoleController::class)->except(['index']);
+
 });
