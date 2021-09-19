@@ -21,8 +21,8 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::group([], function() {
 
-    Route::resource('employees', EmployeeController::class)->except(['index']);
+    Route::resource('employees', EmployeeController::class);
 
-    Route::resource('roles', RoleController::class)->except(['index']);
+    Route::resource('roles', RoleController::class);
 
 });

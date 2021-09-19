@@ -16,6 +16,7 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         (new Employee())->create([
+            'employee_code' => '1sdasd',
             'name' => 'Vianec',
             'identification' => '281-pescado-neitor',
             'sex' => 'm',
@@ -24,12 +25,13 @@ class EmployeeSeeder extends Seeder
             'nationality' => 'Atlantico',
             'date_of_birth' => '2000-12-12',
             'date_of_admission' => '2018-12-25',
-            'departure_date' => '0000-00-00',
+            'departure_date' => '2000-04-25',
             'internal_mail' => 'vianec@empresa.ni',
             'personal_mail' => 'megustaelhentai@anime.com'
         ]);
 
         (new Employee())->create([
+            'employee_code' => 'sdasd',
             'name' => 'Chopan',
             'identification' => '281-tienda-chopan',
             'sex' => 'f',
@@ -38,7 +40,7 @@ class EmployeeSeeder extends Seeder
             'nationality' => 'arroceño',
             'date_of_birth' => '2000-12-12',
             'date_of_admission' => '2018-12-25',
-            'departure_date' => '0000-00-00',
+            'departure_date' => '2000-04-25',
             'internal_mail' => 'chico@empresa.ni',
             'personal_mail' => 'siempresolteronuncainsoltero@gym.com'
         ]);

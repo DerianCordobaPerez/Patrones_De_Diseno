@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="row align-items-center justify-content-center text-center text-white">
-    <div class="col-md-6 ">
+    <div class="col-md-6">
         <div class="px-4 py-3 formulario">
             <!-- creacion de usuario y asignacion de roles-->
             <form action="" class="px-3">
@@ -125,7 +125,7 @@
                 </div>
 
                 <button type="submit" name="send" class="btn btn-success">Registrar</button>
-                <a href="http://" class="btn btn-warning">Cancelar</a>
+                <a href="{{route('home')}}" class="btn btn-warning">Cancelar</a>
             </form>
         </div>
     </div>
