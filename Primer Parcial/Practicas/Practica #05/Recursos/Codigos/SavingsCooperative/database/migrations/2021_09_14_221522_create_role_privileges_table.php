@@ -15,8 +15,8 @@ class CreateRolePrivilegesTable extends Migration
     {
         Schema::create('role_privileges', function (Blueprint $table) {
             $table->id();
-            $table->string('role_code');
-            $table->unsignedInteger('privilege_id');
+            $table->unsignedInteger('role_code');
+            $table->unsignedBigInteger('privilege_id');
 
             $table->foreign('role_code')
                 ->references('role_code')->on('roles')->onUpdate('cascade')->onDelete('cascade');

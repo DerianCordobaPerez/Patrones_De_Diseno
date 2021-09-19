@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @property Integer|mixed role_code
+ * @property mixed role_code
  * @property string|mixed role_name
  * @mixin Builder
  */
@@ -49,7 +49,7 @@ class Role extends Model
      */
     public function privileges(): BelongsToMany
     {
-        return $this->belongsToMany(Privileges::class);
+        return $this->belongsToMany(Privileges::class, 'role_privileges', 'privilege_id', 'id');
     }
 
 }

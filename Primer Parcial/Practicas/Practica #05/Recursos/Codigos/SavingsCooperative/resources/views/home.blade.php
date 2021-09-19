@@ -31,7 +31,7 @@
 
                     <div class="card-footer">
                         <div class="d-grid gap-2">
-                            <a class="btn btn-primary text-white" href="{{route('roles.create')}}"><i class="fas fa-pencil-alt"></i> Editar roles</a>
+                            <a class="btn btn-primary text-white" href="{{route('roles.index')}}"><i class="fas fa-pencil-alt"></i> Editar roles</a>
                         </div>
                     </div>
                 </div>

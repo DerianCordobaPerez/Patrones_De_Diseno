@@ -23,6 +23,6 @@ class RoleSeeder extends Seeder
         );
 
         foreach ($roles as $role)
-            (new Role())->create(['name' => $role]);
+            (new Role())->create(['role_name' => $role]);
     }
 }
