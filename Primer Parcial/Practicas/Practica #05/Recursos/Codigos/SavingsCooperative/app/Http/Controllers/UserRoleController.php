@@ -2,13 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\Role;
 use App\Models\UserRole;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Class UserRoleController
+ * @package App\Http\Controllers
+ */
 class UserRoleController extends Controller
 {
+
+    /**
+     * Show list userRoles
+     *
+     * @return View
+     */
+    public function index(): View {
+        return view('users.index')
+            ->with('userRoles', UserRole::all());
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -16,7 +33,9 @@ class UserRoleController extends Controller
      */
     public function create(): View
     {
-        return view('users.createEdit')->with('userRole');
+        return view('users.createEdit')
+            ->with('userRole')
+            ->with('roles', (new Role())->all());
     }
 
     /**
@@ -27,7 +46,21 @@ class UserRoleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        return redirect()->route('');
+        $employee = (new Employee())->create($request->except([
+            'password', 'role', 'start_date', 'final_date'
+        ]));
+
+        (new UserRole())->create([
+            'employee_code' => $employee->employee_code,
+            'role_code' => $request->role,
+            'password' => $request->password,
+            'start_date' => $request->start_date,
+            'final_date' => $request->final_date
+        ]);
+
+        return redirect()->route('userRoles.index')
+            ->with('success', 'Empleado creado correctamente')
+            ->with('userRoles', UserRole::all());
     }
 
     /**
@@ -38,7 +71,8 @@ class UserRoleController extends Controller
      */
     public function show(UserRole $userRole): View
     {
-        return view('users.show')->with('userRole', $userRole);
+        return view('users.show')
+            ->with('userRole', $userRole);
     }
 
     /**
@@ -49,7 +83,9 @@ class UserRoleController extends Controller
      */
     public function edit(UserRole $userRole): View
     {
-        return view('users.createEdit')->with('userRole', $userRole);
+        return view('users.createEdit')
+            ->with('roles', (new Role())->select()->whereNotIn('role_name', [$userRole->role->role_name])->get())
+            ->with('userRole', $userRole);
     }
 
     /**
@@ -72,6 +108,9 @@ class UserRoleController extends Controller
      */
     public function destroy(UserRole $userRole): RedirectResponse
     {
-        return redirect()->route('');
+        $userRole->delete();
+        return redirect()->route('userRoles.index')
+            ->with('success', 'Empleado eliminado correctamente')
+            ->with('userRoles', UserRole::all());
     }
 }

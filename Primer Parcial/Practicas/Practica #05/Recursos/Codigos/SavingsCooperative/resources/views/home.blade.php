@@ -45,7 +45,7 @@
 
                     <div class="card-footer">
                         <div class="d-grid gap-2">
-                            <a class="btn btn-primary text-white" href="{{route('employees.create')}}"><i class="fas fa-user-plus"></i> Crear Usuario</a>
+                            <a class="btn btn-primary text-white" href="{{route('userRoles.create')}}"><i class="fas fa-user-plus"></i> Crear Usuario</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
 
                     <div class="card-footer">
                         <div class="d-grid gap-2">
-                            <a class="btn btn-primary text-white" href="{{route('employees.create')}}"><i class="fas fa-user-edit"></i> Editar Usuario</a>
+                            <a class="btn btn-primary text-white" href="{{route('userRoles.index')}}"><i class="fas fa-user-edit"></i> Editar Usuario</a>
                         </div>
                     </div>
                 </div>

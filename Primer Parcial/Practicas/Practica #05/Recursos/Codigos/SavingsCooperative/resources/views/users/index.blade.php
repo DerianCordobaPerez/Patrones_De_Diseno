@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @if (count($roles) > 0)
+    @if (count($userRoles) > 0)
         <div class="container">
             <table class="table table-dark table-striped shadow p-3 mb-5 bg-body rounded">
                 <thead>
@@ -13,22 +13,24 @@
                 </thead>
 
                 <tbody>
-                @foreach($roles as $key => $role)
+                @foreach($userRoles as $userRole)
                     <tr>
                         <td>
-                            <b>Nombre rol:</b> {{$role->role_name}}<br>
-                            <b>Cantidad de privilegios:</b> {{$role->privileges->count()}}<br>
+                            <b>Nombre empleado:</b> {{$userRole->employee->name}}<br>
+                            <b>Identificacion:</b> {{$userRole->employee->identification}}<br>
+                            <b>Profesion:</b> {{$userRole->employee->profession}}<br>
+                            <b>Rol:</b> {{$userRole->role->role_name}}<br>
                         </td>
 
                         <td>
                             <div class="btn-group mx-auto" role="group" aria-label="derian">
 
-                                <a href="{{route('roles.edit', $role->role_code)}}" class="btn btn-warning text-white mx-2">
+                                <a href="{{route('userRoles.edit', $userRole->user_code)}}" class="btn btn-warning text-white mx-2">
                                     <i class="fas fa-pencil-alt"></i>
                                     Editar
                                 </a>
 
-                                <form action="{{route('roles.destroy', $role->role_code)}}" method="POST">
+                                <form action="{{route('userRoles.destroy', $userRole->user_code)}}" method="POST">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="btn btn-danger" name="send">
                                         <i class="fas fa-trash-alt"></i>
@@ -44,7 +46,7 @@
         </div>
     @else
         <div class="bg-dark p-4 rounded shadow p-3 mb-5">
-            <h1 class="text-white text-center my-2">No se han agregado roles</h1>
+            <h1 class="text-white text-center my-2">No se han agregado empleados</h1>
 
             <div class="row mx-auto">
                 <div class="my-2 d-grid gap-2 col-6 mx-auto">
@@ -52,7 +54,7 @@
                 </div>
 
                 <div class="my-2 d-grid gap-2 col-6 mx-auto">
-                    <a href="{{route('roles.create')}}" class="btn btn-success text-white">Crear un rol</a>
+                    <a href="{{route('userRoles.create')}}" class="btn btn-success text-white">Crear un empleado</a>
                 </div>
             </div>
         </div>

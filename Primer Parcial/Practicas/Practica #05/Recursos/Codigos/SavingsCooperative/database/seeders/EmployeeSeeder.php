@@ -16,7 +16,6 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         (new Employee())->create([
-            'employee_code' => '1sdasd',
             'name' => 'Vianec',
             'identification' => '281-pescado-neitor',
             'sex' => 'm',
@@ -31,7 +30,6 @@ class EmployeeSeeder extends Seeder
         ]);
 
         (new Employee())->create([
-            'employee_code' => 'sdasd',
             'name' => 'Chopan',
             'identification' => '281-tienda-chopan',
             'sex' => 'f',

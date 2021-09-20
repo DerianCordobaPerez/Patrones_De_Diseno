@@ -6,9 +6,9 @@ use App\Models\Privileges;
 use App\Models\Role;
 use App\Models\RolePrivilege;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 /**
@@ -48,22 +48,27 @@ class RoleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'role_name' => 'required'
+        $validator = Validator::make($request->all(), [
+            'role_name' => 'required|min:2'
         ]);
+
+        if($validator->fails())
+            return redirect()->route('roles.create')->with('error', 'El nombre del rol es requerido');
 
         $role = (new Role())->create([
             'role_name' => $request->role_name ?? ''
         ]);
 
-        foreach ($request->input('privileges') as $privilege_id) {
-            (new RolePrivilege())->create([
-                'role_code' => $role->role_code,
-                'privilege_id' => $privilege_id
-            ]);
+        if($request->input('privileges') !== null) {
+            foreach ($request->input('privileges') as $privilege_id) {
+                (new RolePrivilege())->create([
+                    'role_code' => $role->role_code,
+                    'privilege_id' => $privilege_id
+                ]);
+            }
         }
 
-        return redirect()->route('home')->with('success', 'Rol creado correctamente');
+        return redirect()->route('roles.index')->with('success', 'Rol creado correctamente');
     }
 
     /**
@@ -108,6 +113,11 @@ class RoleController extends Controller
             ->with('roles', (new Role())->all());
     }
 
+    /**
+     * Returns all privileges
+     *
+     * @return Collection|array
+     */
     private function get_all_privileges(): Collection|array
     {
         return (Privileges::all())->chunk(ceil(Privileges::all()->count() / 2));
