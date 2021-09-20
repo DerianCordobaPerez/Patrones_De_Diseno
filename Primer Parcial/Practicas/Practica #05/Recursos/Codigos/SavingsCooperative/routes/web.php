@@ -21,7 +21,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::group([], function() {
 
-    Route::resource('employees', EmployeeController::class);
+    Route::resource('userRoles', UserRoleController::class);
 
     Route::resource('roles', RoleController::class);
 

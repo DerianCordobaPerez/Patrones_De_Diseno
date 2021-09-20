@@ -5,17 +5,17 @@
             <h2 class="text-center text-white my-2"><u>{{!isset($role) ? 'Creacion' : 'Edicion'}} de roles</u></h2>
 
             <div class="card bg-dark rounded shadow text-white col-8 mx-auto p-4">
-                <form method="POST" action="{{route('roles.store')}}">
+                <form method="POST" action="{{!isset($role) ? route('roles.store') : route('roles.edit', $role->role_code)}}">
                     @csrf
 
                     <label class="my-2">
                         Nombre del rol:
-                        <input type="text" name="role_name" class="mx-2 rounded">
+                        <input type="text" name="role_name" class="mx-2 rounded" value="{{isset($role) ? $role->role_name : ''}}">
                     </label>
 
                     <label class="mx-2">
                         Seleccionar todos los privilegios
-                        <input type="checkbox" name="select_all_privileges">
+                        <input type="checkbox" onclick="toggle(this)">
                     </label>
 
                     <div class="row text-justify">
@@ -25,7 +25,14 @@
                                     <div class="row my-4 form-check form-switch">
                                         <label>
                                             {{$item->name}}
-                                            <input type="checkbox" name="privileges[]" value="{{$item->id}}" class="form-check-input">
+                                            @if(isset($role))
+                                                @foreach($role->privileges() as $privilege)
+                                                    <input type="checkbox" name="privileges[]" value="{{$item->id}}"
+                                                           {{$privilege->name === $item->name ? 'checked' : ''}} class="form-check-input">
+                                                @endforeach
+                                            @else
+                                                <input type="checkbox" name="privileges[]" value="{{$item->id}}" class="form-check-input">
+                                            @endif
                                         </label>
                                     </div>
                                 @endforeach
@@ -40,4 +47,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const toggle = source => {
+            const checkboxes = document.getElementsByName('privileges[]')
+            for(let i = 0; i < checkboxes.length; ++i)
+                checkboxes[i].checked = source.checked
+        }
+    </script>
 @endsection

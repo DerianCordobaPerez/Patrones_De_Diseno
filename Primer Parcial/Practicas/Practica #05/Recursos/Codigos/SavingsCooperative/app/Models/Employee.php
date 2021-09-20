@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string employee_code
+ * @property mixed employee_code
  * @property string name
  * @property string identification
  * @property string sex

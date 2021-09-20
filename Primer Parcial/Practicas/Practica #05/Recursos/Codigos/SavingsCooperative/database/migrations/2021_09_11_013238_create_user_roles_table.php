@@ -14,12 +14,12 @@ class CreateUserRolesTable extends Migration
     public function up()
     {
         Schema::create('user_roles', function (Blueprint $table) {
-            $table->unsignedInteger('user_code')->unique();
-            $table->string('employee_code');
+            $table->unsignedInteger('user_code', true)->unique();
+            $table->unsignedInteger('employee_code');
             $table->unsignedInteger('role_code');
             $table->string('password');
-            $table->dateTime('start_date');
-            $table->dateTime('final_date');
+            $table->date('start_date');
+            $table->date('final_date');
 
             $table->foreign('employee_code')
                 ->references('employee_code')->on('employees')->onUpdate('cascade')->onDelete('cascade');
