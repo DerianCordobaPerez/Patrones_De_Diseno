@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Practica #11/Patron_Adapter/Patron_Adapter.iml" filepath="$PROJECT_DIR$/Practica #11/Patron_Adapter/Patron_Adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practica #11/Patron_Bridge/Patron_Bridge.iml" filepath="$PROJECT_DIR$/Practica #11/Patron_Bridge/Patron_Bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practica #12/Patron_Composite/Patron_Composite.iml" filepath="$PROJECT_DIR$/Practica #12/Patron_Composite/Patron_Composite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practica #12/Patron_Facade/Patron_Facade.iml" filepath="$PROJECT_DIR$/Practica #12/Patron_Facade/Patron_Facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Practicas.iml" filepath="$PROJECT_DIR$/.idea/Practicas.iml" />
+    </modules>
+  </component>
+</project>

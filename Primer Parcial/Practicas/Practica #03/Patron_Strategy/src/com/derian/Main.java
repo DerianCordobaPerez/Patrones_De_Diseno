@@ -51,9 +51,5 @@ public class Main {
         p4.setFlotar(new NoFlotar());
         System.out.println(p4.realizarVuelo() + "\n");
         System.out.println(p4.realizarFlotar() + "\n");
-
-
-
-
     }
 }
